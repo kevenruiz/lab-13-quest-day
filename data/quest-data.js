@@ -1,147 +1,124 @@
 // quests[0].choices[0].description; ==> 'negotiate with them'
 
 
-const monsters = {
-    id: 'monsters',
-    title: 'A Den of Monsters',
+const Charmander = {
+    id: 'charmander',
+    title: 'Wild Charmander',
     map: {
         top: '89%',
         left: '44%'
     },
-    image: 'monsters.jpg',
+    image: '',
     description: `
-        You enter the quest chamber only to be confronted by a hoard of
-        monsters. And they look hungry. What do you do?
-    `,
-    choices: [{
-        id: 'negotiate',
-        description: 'Negotiate with them',
-        result: `
-            Knowing the monsters are not too bright, you offer to go buy them all
-            turkey dinners from the village pub. They give you 35 gold for meals
-            that will never be delivered. I hope you can live with yourself. 
-        `,
-        hp: 0,
-        gold: 35
-    }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
-        result: `
-            Brandishing your sword you let out a warrior's cry and charge into the monsters
-            hacking and slashing. Before long you stand panting gazing across the bodies of
-            your vanquished foes. The bad news is you take 30 hp damage. The good news is you
-            find 50 gold.
-        `,
-        hp: -30,
-        gold: 50
-    }, {
-        id: 'run',
-        description: 'Run away like good Sir Robin',
-        result: `
-            As you make a dash for the door a giant spider descends and take a bite of flesh,
-            causing 50 hp damage.
-        `,
-        hp: -50,
-        gold: 0
-    }]
-};
-
-const dragon = {
-    id: 'dragon',
-    title: 'A HAIRY!!! Dragon',
-    map: {
-        top: '17%',
-        left: '37%'
-    },
-    image: 'dragon.jpg',
-    audio: 'dragon.wav',
-    action: 'dragon-growl.aiff',
-    description: `
-        You run to a nearby village you have heard is being
-        terrorized by a dragon. Sure enough as you rent a room
-        in a local inn, you go outside and see the dragon about
-        to lay seige! What do you do?
+        You meet a wild Charmander, you dont have one in your pokedex. You always wanted to capture one, here is your chance.
     `,
     choices: [{
         id: 'run',
-        description: 'Get the hell out of the village',
+        description: 'Flee the scene before you get burnt',
         result: `
-            You high tail it in the opposite direction. Luckily,
-            in the panic you find a bag on the ground with 15 gold.
-            Unluckily, you trip over a discarded wagon wheel on your
-            way out of town and take 40 hp damage. 
-        `,
-        hp: -35,
-        gold: 15
-    }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
-        result: `
-            You attempt to charge towards the dragon, who sees you approach
-            and let's loose a fireball. You wake up the next morning and the
-            village has been completely burned to the ground.
-            Oh, and you take 45 hp damage.
-        `,
-        hp: -45,
-        gold: 0
-    }, {
-        id: 'archer',
-        description: 'Emulate that guy from LOR who shot an arrow',
-        result: `
-            Inspired by the legend of Bard the Bowman, you notice a
-            stunned archer standing nearby and take their bow and quiver,
-            climb to the top of a tall tower and take aim. On the dragon's
-            next pass you steady your aim and let one fly. Amazingly,
-            you strike the dragon in the eye, piercing into the brain and
-            killing the dragon instantly. The villagers declare you their hero
-            and award you 90 gold.
+           You safely escaped, you get to keep your HP and live to see another day
         `,
         hp: 0,
-        gold: 90
+        gold: 0
+    }, {
+        id: 'fight',
+        description: 'Fight Charmander',
+        result: `
+           You weaken the pokemon just enough to capture it! Congratulations you have a new pokemon in your Pokedex
+        `,
+        hp: -5,
+        gold: 0
+    }, {
+        id: 'feed',
+        description: 'You are not in a capturing mood. Instead you decide to feed the cute pokemon',
+        result: `
+            The charmander ate all of your food, evolved into a charmeleon and burnt you and all your pokemon. and you are out of 100 gold, that what it will cost to replace your food.
+        `,
+        hp: -50,
+        gold: -100
     }]
 };
 
-const treasure = {
-    id: 'treasure',
-    title: 'A Golden Treasure',
+const Charmeleon = {
+    id: 'Charmeleon',
+    title: 'Wild Charmeleon',
     map: {
-        top: '31%',
-        left: '5%'
+        top: '89%',
+        left: '44%'
     },
-    prerequisites: ['dragon', 'monsters'],
-    image: 'treasure-chests.png',
-    audio: 'treasure-chests.wav',
-    action: 'chest-opening.wav',
+    image: '',
     description: `
-        As you enter the quest chamber you notice three chests before you.
-        Just as you start to imagine the wealth, you see a giant serpent
-        emerge from the back of the chamber. You'll need to make a run for it,
-        but you have time to open one chest before you take off. Which one 
-        do you choose?
+        You meet a wild Charmeleon, you dont have one in your pokedex. You always wanted to capture one, here is your chance.
     `,
     choices: [{
-        id: 'wooden',
-        description: 'A Wooden Chest',
-        result: 'You grab 40 gold pieces!',
+        id: 'run',
+        description: 'Flee the scene before you get burnt',
+        result: `
+           You safely escaped, you get to keep your HP and live to see another day
+        `,
         hp: 0,
-        gold: 40
-    }, {
-        id: 'golden',
-        description: 'A Golden Chest',
-        result: 'Oh no! The chest is booby trapped with poison and you take 50 hp damage',
-        hp: -50,
         gold: 0
     }, {
-        id: 'jeweled',
-        description: 'A Jeweled Chest',
-        result: 'A warm light engulfs you and you gain 35 hp',
-        hp: 35,
-        gold: 0
+        id: 'fight',
+        description: 'Fight Charmeleon',
+        result: `
+           You weaken the pokemon just enough to capture it! Congratulations you have a new pokemon in your Pokedex. However you have spent all of your food and need to replace it all.
+        `,
+        hp: -9,
+        gold: -50,
+    }, {
+        id: 'feed',
+        description: 'You are not in a capturing mood. Instead you decide to feed the cute pokemon',
+        result: `
+            The Charmeleon ate all of your food, evolved into a Charizard and burnt you and all your pokemon. and you are out of 300 gold, that what it will cost to replace your food. that was a close call.
+        `,
+        hp: -49,
+        gold: -300
     }]
 };
+
+
+const Charizard = {
+    id: 'Charizard',
+    title: 'Wild Charizard',
+    map: {
+        top: '89%',
+        left: '44%'
+    },
+    image: '',
+    description: `
+        You meet a wild Charizard, you dont have one in your pokedex. You always wanted to capture one, here is your chance.
+    `,
+    choices: [{
+        id: 'run',
+        description: 'Flee the scene before you get burnt',
+        result: `
+           You safely escaped, you get to keep your HP and live to see another day 
+        `,
+        hp: 0,
+        gold: 0
+    }, {
+        id: 'fight',
+        description: 'Fight Charmander',
+        result: `
+           You weaken the pokemon just enough to capture it! Congratulations you have a new pokemon in your Pokedex
+        `,
+        hp: -5,
+        gold: 0
+    }, {
+        id: 'feed',
+        description: 'You are not in a capturing mood. JK you cant catch it because none of your pokemon are strong enough. You play it nice before Charizard gets angry',
+        result: `
+            Charizard felt you looked him in the eyes and decided to beat you up. you make it out, with 1 hp. You decide to go back to Pallet town
+        `,
+        hp: -50,
+        gold: -100
+    }]
+};
+
 
 const quests = [
-    monsters,
+    monsters, 
     treasure,
     dragon,
 ];
