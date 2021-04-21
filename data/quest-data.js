@@ -118,9 +118,9 @@ const Charizard = {
 
 
 const quests = [
-    monsters, 
-    treasure,
-    dragon,
+    Charmander,
+    Charmeleon,
+    Charizard,
 ];
 
 export default quests;

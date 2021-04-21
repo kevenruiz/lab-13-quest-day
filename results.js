@@ -1,4 +1,4 @@
-import { getUser } from '../data/api.js';
+/*import { getUser } from '../data/api.js';
 import { renderHeader } from '../render-utils.js';
 import { isFainted } from './common/is-fainted.js';
 
@@ -27,3 +27,4 @@ button.addEventListener('click', () => {
 
     window.location = '../';
 });
+*/
